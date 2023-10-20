@@ -20,7 +20,6 @@ class Game extends JPanel {
     private static Font FONT_M = new Font("MV Boli", Font.PLAIN, 24);
     private static Font FONT_M_ITALIC = new Font("MV Boli", Font.ITALIC, 24);
     private static Font FONT_L = new Font("MV Boli", Font.PLAIN, 84);
-    private static Font FONT_XL = new Font("MV Boli", Font.PLAIN, 150);
     private static int WIDTH = 760;
     private static int HEIGHT = 520;
     private static int DELAY = 50;
@@ -28,7 +27,7 @@ class Game extends JPanel {
     // Struktur Game
     public Game() {
         try {
-            image = ImageIO.read(new File("cherry.png"));
+            image = ImageIO.read(new File("buggy.png"));
         } catch (IOException e) {
           didLoadCherryImage = false;
         }
@@ -146,7 +145,7 @@ class Game extends JPanel {
 
         if (cherry != null) {
           if (didLoadCherryImage) {
-            g2d.drawImage(image, cherry.getX(), cherry.getY(), 60, 60, null);
+            g2d.drawImage(image, cherry.getX(), cherry.getY(), 20, 20, null);
           } else {
             g2d.setColor(Color.BLACK);
             g2d.fillOval(cherry.getX(), cherry.getY(), 10, 10);
@@ -177,13 +176,13 @@ class Game extends JPanel {
         g2d.drawRect(20, 40, WIDTH, HEIGHT);
     }
 
-    // Memunculkan Makanan Cacing
+    // Memunculkan Makanan Cacing secara acak
     public void spawnCherry() {
         cherry = new Point((new Random()).nextInt(WIDTH - 60) + 20,
             (new Random()).nextInt(HEIGHT - 60) + 40);
     }
 
-    // Tombol Kuncil Game
+    // Tombol Kunci Game
     private class KeyListener extends KeyAdapter {
         @Override
         public void keyPressed(KeyEvent e) {
